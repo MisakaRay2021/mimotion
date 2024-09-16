@@ -11,10 +11,12 @@ def get_time_stamp():
 
     :return: 时间戳
     """
-    url = 'http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp'
-    response = requests.get(url).json()
-    t = response['data']['t']
-    return t
+    # 获取当前的UTC时间
+    utc_time = datetime.datetime.utcnow()
+    # 将UTC时间转换为北京时间（UTC+8）
+    bj_time = utc_time + datetime.timedelta(hours=8)
+    bj_timestamp = int(int(time.mktime(bj_time.timetuple()) * 1000) + bj_time.microsecond / 1000)
+    return bj_timestamp
 
 
 def loginGetCode(user, password):

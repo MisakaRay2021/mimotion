@@ -193,7 +193,10 @@ def main(_user, _password, _step_min, _step_max):
 
 
 if __name__ == '__main__':
+    user = sys.argv[1]
+    password = sys.argv[2]
+    pushplus_token = sys.argv[3]
     ##刷步数
-    res = main("xxxxxx@xx.com", "123456", 1000, 2000)
+    res = main(user, password, 10000, 20000)
     #推送消息
-    pushMessage("pushplus的token", "刷步接口调用", res)
+    pushMessage(pushplus_token, "刷步接口调用", res)
