@@ -174,6 +174,8 @@ def main(_user, _password, _step_min, _step_max):
     print("已设置为随机步数:" + step)
     if user == '' or password == '':
         return "请正确填写用户名或密码"
+    print(user)
+    print(password)
     # 获取code
     is_phone, code = loginGetCode(user, password)
     if code == 0:
